@@ -1,0 +1,18 @@
+TENSLIDES
+
+HTML/CSS-based Slideshow system, with PHP support
+
+v.0 Initial Status
+
+
+ROADMAP:
+- Make initial appearance of the navigation as if it was in #anchor_slide1. 
+	-> Benefit: user locates better in the presentation.
+- Split navigation from slides. 
+	-> Benfit: automate navigation with php.
+- Make back/forward buttons chrome-like (not using 50%). 
+	-> Benfit: Enables select/copy the content from below. Also allow for clicking around without action associated.
+- Add config params for most common design elements.
+	-> Benefit: Easy initial configuration of the basic visuals.
+- Add config param to enable/disable horizontal scrolling.
+	-> Benefits: Let the user choose wether to show the horitzontal scroll and be oldies-browsers compatible, or not and get rid of the scrollbar.

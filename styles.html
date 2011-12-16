@@ -1,0 +1,79 @@
+
+		<style>
+			 @import url(css/style.css);
+			 @import url(css/theme.css);
+			/* Basic Style/Positioning for all Pages */
+			html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+			body { overflow-x: hidden; /* Hide the other pages */ }
+			
+			.pages,
+			.page,
+			.page .backbutton,
+			.page .nextbutton  { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+			
+			.page h1 { margin-top: 1em; /* Make it show below the nav */ }
+			
+			.page .backbutton,
+			.page .nextbutton { width: 50%; }
+			
+			.page .nextbutton { left: auto; right: 0; }
+			
+			.page .nextbutton { cursor: url('media/right.png'), e-resize; }
+			.page .backbutton { cursor: url('media/left.png'), w-resize; }
+			
+			/* Slide Effect */
+			.pages {
+				-webkit-transition: left 0.8s;
+				-moz-transition: left 0.8s;
+				-o-transition: left 0.8s;
+				-ms-transition: left 0.8s;
+				transition: left 0.8s;
+			}
+				
+			/* Top Navigation */
+			nav {
+				display: block;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				right: 0;
+			}
+				<?php $width = 100/count($filesArray); ?>
+				
+				nav a, nav a:visited {
+					font: 1.5em/1.5 helvetica, arial;
+					font-weight: normal;
+					text-decoration: none;
+					color: #aaa;
+					text-align: center;
+					background-color: rgba(0,0,0,0.1);
+					display: block;
+					float: left;
+					-moz-transition: background 0.5s;
+					-webkit-transition: background 0.5s;
+					-o-transition: background 0.5s;
+					-ms-transition: background 0.5s;
+					transition: background 0.5s;
+					width: <?php echo $width; ?>%;
+				}
+				nav a:hover { background-color: rgba(0,0,0,.5); color: #aaa; }
+				
+			/* This is just make them less ugly */
+			body { font-family: sans-serif; text-align: center; }
+			h1 { font-size: 2em; }
+		
+				/* Pages */
+				<?php
+				
+				for ($i=0; $i<count($filesArray); $i++) {
+					echo '#'.$filesArray[$i] . ' {left: '.(100*$i).'%; }'."\n\t\t\t\t";
+					echo '#anchor_'.$filesArray[$i].':target .pages { left: -'.(100*$i).'%; }'."\n\t\t\t\t";
+					
+					echo '#anchor_'.$filesArray[$i].':target nav a:nth-child('.($i+1).') { background-color: rgba(0, 81, 113, 0.3); color: #fff; }'."\n\t\t\t\t";
+					echo "\n\t\t\t\t";
+				}
+				
+				?>
+		
+		</style>

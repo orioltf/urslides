@@ -1,0 +1,35 @@
+.block_left { float: left; }
+.block_right { float: right; }
+.block_center { margin-left: auto; margin-right: auto; }
+.text_left { text-align: left; }
+.text_right { text-align: right; }
+.text_center { text-align: center; }
+
+.one_half 	{ width: 50%; }
+.one_third 	{ width: 33%; }
+.two_thirds { width: 66%; }
+
+html { background: #fff url(../media/linen_hell.png); }
+	.page img { 
+		max-width: 100%; height: auto;
+		-webkit-box-shadow: 0px 2px 4px 2px #666;
+		   -moz-box-shadow: 0px 2px 4px 2px #666;
+		     -o-box-shadow: 0px 2px 4px 2px #666;
+		 -khtml-box-shadow: 0px 2px 4px 2px #666;
+		        box-shadow: 0px 2px 4px 2px #666; 
+	}
+
+
+.page hgroup { 
+	background-color: #fff;
+	position: absolute;
+	top: 2.25em;
+	left: 0;
+	right: 0; 
+}
+	.page hgroup h1 { margin: 0; }
+.page > div.clearfix { margin-top: 8%; }
+
+
+#slide15 p { margin-bottom: 0; }
+#slide15 code { font-size: 0.925em; color: blue; }
