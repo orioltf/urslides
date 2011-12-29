@@ -3,36 +3,24 @@
 	define ("SLIDES_PATH", APP_PATH . "/slides/");
 	
 	function populateArryOfFiles($dirName, &$filesArray) {
-		if(!is_dir($dirName)) return false;
+		if ( !is_dir($dirName) ) return false;
 		
 		$dirHandle = opendir($dirName);
-		while (false !== ($incFile = readdir($dirHandle))) {
-			if ($incFile != "." && $incFile != "..") {
-				if (is_file("$dirName/$incFile")) {
-					//$ext = end(explode('.', $incFile)); //returns Strict warn
-					$ext = substr(strrchr($incFile, '.'), 1);
-					$filesArray[] = basename($incFile, '.'.$ext);
-				}
-				//elseif (is_dir("$dirName/$incFile"))	$filesArray[] = $incFile;
-			}
+		while ( ($incFile = readdir($dirHandle)) !== false ) {
+			if ( preg_match("!^.+\.html$!i", $incFile) && is_file("$dirName/$incFile") )
+				$filesArray[] = preg_replace("!\.html$!i", "", $incFile);
 		}
+
 		closedir($dirHandle);
+		natcasesort($filesArray);
+		$filesArray = array_values($filesArray);
+		return true;
 	}
-	
-	function includeRecurse($dirName) {
-		if(!is_dir($dirName)) return false;
-		
-		$dirHandle = opendir($dirName);
-		while (false !== ($incFile = readdir($dirHandle))) {
-			if ($incFile != "." && $incFile != "..") {
-				if (is_file("$dirName/$incFile")) include_once("$dirName/$incFile"); 
-				//elseif (is_dir("$dirName/$incFile"))	includeRecurse("$dirName/$incFile");
-			}
-		}
-		closedir($dirHandle);
-	}
-	
-	populateArryOfFiles(SLIDES_PATH,$filesArray);
-	include_once 'tenslide.html';
+
+	$filesArray = array();
+	if ( populateArryOfFiles(SLIDES_PATH, $filesArray) )
+		include_once 'tenslide.html';
+	else
+		echo "ERROR LOADING SLIDES";
 	
 ?>

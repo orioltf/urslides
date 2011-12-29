@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Pure CSS Slideshow</title>
 		<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width = device-width;"> 
 		
@@ -9,7 +10,7 @@
 			Except oldies of course. -->
 		
 		<!-- Every page has its own #url for direct links.
-			Check your browserhistory. Its not broken. -->
+			Check your browser history. Its not broken. -->
 		
 		<?php include_once 'styles.html'; ?>
 		
@@ -25,27 +26,30 @@
 	<body ontouchmove="BlockMove(event);"> 
 		<?php
 			// Create divs used for anchor-jumps with the pseudoclass :target
-			foreach ($filesArray as $file) {
-				echo '<div id="anchor_'.$file.'">'."\n\t\t";
+			foreach ($filesArray as $filename) {
+				echo '<div id="anchor_'.$filename.'">'."\n\t\t";
 			}
 		?>
 		
-			<nav>
-				<?php
-					for ($i=0; $i<count($filesArray); $i++) {
-						echo '<a href="#anchor_'.$filesArray[$i].'">'.($i+1).'</a>'."\n\t\t\t\t";
-					}
-				?>
-
-			</nav>
+			<header>
+				<nav>
+					<?php
+						foreach ( $filesArray as $key => $filename ) {
+							echo '<a href="#anchor_'.$filename.'">'.($key+1).'</a>'."\n\t\t\t\t";
+						}
+					?>
+				</nav>
+			</header>
+			
 			<div class="pages">
 			<?php
-				includeRecurse(SLIDES_PATH);
+				foreach ($filesArray as $filename)
+					include_once(SLIDES_PATH . $filename . ".html");
 			?>
 			</div>
 		<?php
-			foreach ($filesArray as $file) {
-				echo '</div>'."\n\t\t";
+			foreach ($filesArray as $filename) {
+				echo "</div>\n\t\t";
 			}
 		?>
 		
@@ -53,5 +57,13 @@
 		<!--footer>
 			<a href="#" class="link">FOOTER</a>
 		</footer-->
+		
+		
+		<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+			chromium.org/developers/how-tos/chrome-frame-getting-started -->
+		<!--[if lt IE 9 ]>
+			<script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+			<script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+		<![endif]-->
 	</body>
 </html>
