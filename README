@@ -18,5 +18,5 @@ ROADMAP:
 	-> Benefits: Let the user choose wether to show the horitzontal scroll and be oldies-browsers compatible, or not and get rid of the scrollbar.
 - Beautify URLs
 	-> Benefits: Improve semantics.
--Add different slides templates
+- Add different slides templates
 	-> Example: 2 columns 50%, 3 columns 33%, 2columns 33-66%, columns 66-33%, etc
