@@ -2,11 +2,19 @@ TENSLIDES
 
 HTML/CSS-based Slideshow system, with PHP support
 
+v.0.0.2.0		Make back/forward buttons chrome-like (not using 50%).
+					- Benfit: Enables select/copy the content from below. Also allow for clicking around without action associated.
+				Update theme appearance:
+					- Changed background by a darker one
+					- Improved images behaviour by controllyng teh Y-axis (because most screens are landscape)
+					- Added background image to navigation to avoid previous/next hover lightning
+					- Added top push via CSS to force the content to appear below the navigation and the header
 v.0.0.1.0		Improved logic. 
 					- Added security: only .html files will be loaded as slides
 					- Removed excessive loops
 					- Add slides loading feedback
 v.0.0.0.1		Remove initial hard reset
+					- Benefit: Add horizontal scroll to html element for graceful degradation for oldies.
 v.0 			Initial Status
 
 
@@ -15,8 +23,6 @@ ROADMAP:
 	-> Benefit: user locates better in the presentation.
 - Split navigation from slides. 
 	-> Benfit: automate navigation with php.
-- Make back/forward buttons chrome-like (not using 50%). 
-	-> Benfit: Enables select/copy the content from below. Also allow for clicking around without action associated.
 - Add config params for most common design elements.
 	-> Benefit: Easy initial configuration of the basic visuals.
 - Add config param to enable/disable horizontal scrolling.

@@ -12,15 +12,18 @@
 			.page .backbutton,
 			.page .nextbutton  { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 			
-			.page h1 { margin-top: 1em; /* Make it show below the nav */ }
-			
 			.page .backbutton,
-			.page .nextbutton { width: 50%; }
+			.page .nextbutton { width: 10%; }
+			
+			.page .backbutton:hover,
+			.page .nextbutton:hover { background-color: rgba(0,0,0,0.2); }
 			
 			.page .nextbutton { left: auto; right: 0; }
 			
-			.page .nextbutton { cursor: url('media/right.png'), e-resize; }
-			.page .backbutton { cursor: url('media/left.png'), w-resize; }
+			.page .nextbutton { background: url('media/right.png') no-repeat 50% 50%; }
+			.page .backbutton { background: url('media/left.png') no-repeat 50% 50%; }
+			
+			.page h1 { margin-top: 1em; /* Make it show below the nav */ }
 			
 			/* Slide Effect */
 			.pages {
@@ -62,7 +65,7 @@
 				
 			/* This is just make them less ugly */
 			body { font-family: sans-serif; text-align: center; }
-			h1 { font-size: 2em; }
+			h1 { font-size: 1.5em; line-height: 1.3em; }
 		
 				/* Pages */
 				<?php
@@ -71,7 +74,7 @@
 					echo '#'.$filesArray[$i] . ' {left: '.(100*$i).'%; }'."\n\t\t\t\t";
 					echo '#anchor_'.$filesArray[$i].':target .pages { left: -'.(100*$i).'%; }'."\n\t\t\t\t";
 					
-					echo '#anchor_'.$filesArray[$i].':target nav a:nth-child('.($i+1).') { background-color: rgba(0, 81, 113, 0.3); color: #fff; }'."\n\t\t\t\t";
+					echo '#anchor_'.$filesArray[$i].':target nav a:nth-child('.($i+1).') { background-color: rgba(0, 0, 0, 0.3); color: #fff; }'."\n\t\t\t\t";
 					echo "\n\t\t\t\t";
 				}
 				

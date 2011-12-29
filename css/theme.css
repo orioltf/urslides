@@ -4,14 +4,22 @@
 .text_left { text-align: left; }
 .text_right { text-align: right; }
 .text_center { text-align: center; }
+.align_middle { display: table-cell; vertical-align: middle; }
 
 .one_half 	{ width: 50%; }
 .one_third 	{ width: 33%; }
 .two_thirds { width: 66%; }
+.full_width	{ width: 80%; } /* -20% from navigation left & right */
 
-html { background: #fff url(../media/linen_hell.png); }
+
+html { background: #fff url(../media/linen.png) fixed; }
+	nav { background: url(../media/header_back.jpg) repeat-x; }
+		html nav a { font-size: 20px; }
+	
 	.page img { 
-		max-width: 100%; height: auto;
+		width: auto; height: auto;
+		max-height: 80%;
+		/*max-width: 100%; height: auto;*/
 		-webkit-box-shadow: 0px 2px 4px 2px #666;
 		   -moz-box-shadow: 0px 2px 4px 2px #666;
 		     -o-box-shadow: 0px 2px 4px 2px #666;
@@ -20,16 +28,30 @@ html { background: #fff url(../media/linen_hell.png); }
 	}
 
 
+.page { }
 .page hgroup { 
 	background-color: #fff;
 	position: absolute;
-	top: 2.25em;
+	top: 30px;
 	left: 0;
 	right: 0; 
 }
 	.page hgroup h1 { margin: 0; }
-.page > div.clearfix { margin-top: 8%; }
+	
+	.page > .content {
+		background-color: rgba(255,255,255,0.45);
+		height: 100%;
+		font-size: 1.2em;
+	}
+		.top_push:before {
+			content: " ";
+			display: block;
+			height: 10%;
+			min-height: 100px;/* Something more than navigation + header */
+		}
+		.full_height {
+			height: 100%;
+		}
+		
 
 
-#slide15 p { margin-bottom: 0; }
-#slide15 code { font-size: 0.925em; color: blue; }
